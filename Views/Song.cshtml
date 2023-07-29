@@ -1,0 +1,14 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<MetarankingsUmbraco.Models.Song>
+@using ContentModels = MetarankingsUmbraco.Models;
+@{
+	Layout = null;
+}
+
+<h4>@Model.Name</h4>
+<div class="song-text">
+    @Model.Text
+</div>
+<div class="release-year">
+    @Model.ReleaseYear
+</div>

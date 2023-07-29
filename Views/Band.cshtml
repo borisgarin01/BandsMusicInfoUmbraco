@@ -1,0 +1,18 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<MetarankingsUmbraco.Models.Band>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = null;
+}
+
+<h4>@Model.Name</h4>
+<img height="500px" src="@Model.MainImage.Url()"/>
+<div class="article">
+    @Model.Article
+</div>
+<div class="links">
+    @foreach(var link in Model.Children)
+    {
+        <a href="@link.Url()">@link.Name</a>
+    }
+</div>
