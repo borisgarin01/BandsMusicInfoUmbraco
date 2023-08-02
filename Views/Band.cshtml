@@ -11,8 +11,10 @@
     @Model.Article
 </div>
 <div class="links">
+    <ol>
     @foreach(var link in Model.Children)
     {
-        <a href="@link.Url()">@link.Name</a>
+        <li><a href="@link.Url()">@link.Name</a></li>
     }
+    </ol>
 </div>

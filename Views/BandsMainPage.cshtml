@@ -1,0 +1,20 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<MetarankingsUmbraco.Models.BandsMainPage>
+@using ContentModels = MetarankingsUmbraco.Models;
+@{
+	Layout = null;
+}
+
+@foreach(var item in Model.Children())
+{
+    <div>
+        <a href="@item.Url()">@item.Name</a>
+    </div>
+}
+
+@foreach(var item in Model.BandsImages)
+{
+    <div>
+        <img src="@item.Url()" height="200px"/>
+    </div>
+}
