@@ -4,11 +4,23 @@
 @{
 	Layout = null;
 }
-<a href="@Model.Parent.Url()">Back</a>
-<h4>@Model.Name</h4>
-<div class="song-text">
-    @Model.Text
+<div class="go-back">
+    <a href="@Model.Parent.Url()">Back</a>
 </div>
-<div class="release-year">
-    @Model.ReleaseYear.Year
+<div class="song-info">
+    <h4>@Model.Name</h4>
+    <div class="song-text">
+        @Model.Text
+    </div>
+    <div class="release-year">
+        @Model.ReleaseYear.Year
+    </div>
+    <div class="audio-record">
+        @if(Model.AudioRecord!=null)
+        {
+            <audio controls>
+                <source src="@Model.AudioRecord" type="audio/mpeg">
+            </audio>
+        }
+    </div>
 </div>

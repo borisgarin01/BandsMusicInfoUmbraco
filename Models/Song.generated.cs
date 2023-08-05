@@ -50,6 +50,14 @@ namespace MetarankingsUmbraco.Models
 		// properties
 
 		///<summary>
+		/// Audio record
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("audioRecord")]
+		public virtual string AudioRecord => this.Value<string>(_publishedValueFallback, "audioRecord");
+
+		///<summary>
 		/// Release year
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
