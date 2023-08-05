@@ -10,7 +10,14 @@
 <div class="song-info">
     <h4>@Model.Name</h4>
     <div class="song-text">
-        @Model.Text
+        @if(!string.IsNullOrWhiteSpace(Model.Text.ToString()))
+        {
+            <text>@Model.Text</text>
+        }
+        else
+        {
+            <text>This track has no lyrics</text>
+        }
     </div>
     <div class="release-year">
         @Model.ReleaseYear.Year
