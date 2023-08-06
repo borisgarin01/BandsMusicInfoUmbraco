@@ -4,7 +4,9 @@
 @{
 	Layout = null;
 }
-
+<div class="go-back">
+    <a href="@Model.Parent.Url()">Back</a>
+</div>
 <h4>@Model.Name</h4>
 <img width="70%" src="@Model.MainImage.Url()" />
 <div class="article">
