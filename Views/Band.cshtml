@@ -2,7 +2,7 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<MetarankingsUmbraco.Models.Band>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = null;
+    Layout = null;
 }
 <div class="go-back">
     <a href="@Model.Parent.Url()">Back</a>
@@ -14,9 +14,21 @@
 </div>
 <div class="links">
     <ol>
-    @foreach(var link in Model.Children)
-    {
-        <li><a href="@link.Url()">@link.Name</a></li>
-    }
+        @foreach (var linkSongPage in Model.Children<MetarankingsUmbraco.Models.Song>())
+        {
+            <div class="audio-link-item">
+            <li>
+                <a href="@linkSongPage.Url()">@linkSongPage.Name</a>
+                <div class="audio-record">
+                        @if (linkSongPage.AudioRecord != null)
+                        {
+                        <audio controls>
+                            <source src="@linkSongPage.AudioRecord" type="audio/mpeg">
+                        </audio>
+                        }
+                </div>
+            </li>
+    </div>
+        }
     </ol>
 </div>
