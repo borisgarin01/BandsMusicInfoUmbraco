@@ -2,7 +2,7 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<MetarankingsUmbraco.Models.Song>
 @using ContentModels = MetarankingsUmbraco.Models;
 @{
-	Layout = null;
+    Layout = null;
 }
 <div class="go-back">
     <a href="@Model.Parent.Url()">Back</a>
@@ -10,7 +10,7 @@
 <div class="song-info">
     <h4>@Model.Name</h4>
     <div class="song-text">
-        @if(!string.IsNullOrWhiteSpace(Model.Text.ToString()))
+        @if (!string.IsNullOrWhiteSpace(Model.Text.ToString()))
         {
             <text>@Model.Text</text>
         }
@@ -23,11 +23,22 @@
         @Model.ReleaseYear.Year
     </div>
     <div class="audio-record">
-        @if(Model.AudioRecord!=null)
+        @if (Model.AudioRecord != null)
         {
             <audio controls>
                 <source src="@Model.AudioRecord" type="audio/mpeg">
             </audio>
+        }
+    </div>
+    <div class="song-albums">
+        @if (Model.Albums != null)
+        {
+            foreach (Album album in Model.Albums)
+            {
+                <div class="song-album">
+                    <h4>@album.Title</h4>
+                </div>
+            }
         }
     </div>
 </div>
