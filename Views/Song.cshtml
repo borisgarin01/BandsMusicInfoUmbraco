@@ -30,15 +30,10 @@
             </audio>
         }
     </div>
-    <div class="song-albums">
-        @if (Model.Albums != null)
-        {
-            foreach (Album album in Model.Albums)
-            {
-                <div class="song-album">
-                    <h4>@album.Title</h4>
-                </div>
-            }
+        @if(Model.Parent is Album)
+        {   
+            <div class="song-album">
+                <h4>@(((Album)Model.Parent).Name)</h4>
+            </div>
         }
-    </div>
 </div>

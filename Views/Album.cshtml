@@ -4,3 +4,38 @@
 @{
 	Layout = null;
 }
+<div class="back">
+    <a href="@Model.Parent.Url()">Back</a>
+</div>
+<div class="album-main-page-info">
+    <h4>@Model.Name</h4>    
+</div>
+<div class="model-songs-info">
+    @foreach(Song song in Model.Children<Song>())
+    {
+        <div class="song-info">
+            <h4><a href="@song.Url()">@song.Name</a></h4>
+            <div class="song-text">
+            @if(!string.IsNullOrWhiteSpace(song.Text.ToString()))
+            {
+                <text>@song.Text</text>
+            }
+            else
+            {
+                <text>This track has no lyrics</text>
+            }
+            </div>
+            <div class="release-year">
+                @song.ReleaseYear.Year
+            </div>
+            <div class="audio-record">
+            @if (song.AudioRecord != null)
+            {
+                <audio controls>
+                    <source src="@song.AudioRecord" type="audio/mpeg">
+                </audio>
+            }
+            </div>
+        </div>
+    }
+</div>
