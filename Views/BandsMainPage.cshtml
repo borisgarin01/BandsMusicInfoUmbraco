@@ -2,7 +2,7 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<MetarankingsUmbraco.Models.BandsMainPage>
 @using ContentModels = MetarankingsUmbraco.Models;
 @{
-	Layout = null;
+	Layout = "Master.cshtml";
 }
 <div class="d-generic-page-head"
 
@@ -11,7 +11,7 @@
     <div>
         <div class="band-list-item">
             <a href="@item.Url()">
-                <img href="@item.Url()" width="70%" src="@item.MainImage.Url()" />
+                <img href="@item.Url()" width="100%" src="@item.MainImage.Url()" />
             </a>
             <br/>
             <div class="band-name-link">
