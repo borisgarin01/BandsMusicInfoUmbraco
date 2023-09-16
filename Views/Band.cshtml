@@ -19,7 +19,42 @@
             <div class="album-link-item">
                 <li>
                 <h4><a href="@linkAlbumPage.Url()">@linkAlbumPage.Name</a></h4>
+                <ol>
                     @foreach (Song song in linkAlbumPage.Children<Song>())
+                    {
+                        <div class="song-from-band-page-info">
+                        <li><h4><a href="@song.Url()">@song.Name</a></h4></li>
+                            <div class="song-info">
+                                @if(!string.IsNullOrWhiteSpace(song.Text.ToString()))
+                                {
+                                    <div class="song-text">
+                                        @song.Text
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="no-lyrics">
+                                        <h4>This record has no lyrics</h4>
+                                    </div>
+                                }
+                                </div>
+                            <div class="song-record">
+                            @if (song.AudioRecord != null)
+                            {
+                                <audio controls>
+                                    <source src="@song.AudioRecord" type="audio/mpeg">
+                                </audio>
+                            }
+                            </div>
+                        </div>
+                    }
+                </ol>
+                </li>
+            </div>
+        }
+    </ol>
+    <ol>
+        @foreach (Song song in Model.Children<Song>())
                     {
                         <div class="song-from-band-page-info">
                             <h4><a href="@song.Url()">@song.Name</a></h4>
@@ -47,8 +82,5 @@
                             </div>
                         </div>
                     }
-                </li>
-            </div>
-        }
     </ol>
 </div>
